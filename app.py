@@ -23,4 +23,12 @@ def choose_words():
                            title=story.title,
                            prompts=prompts)
 
-
+@app.route('/story')
+def show_story():
+    """Display the chosen story with the chosen words"""
+    story_id = request.args['story_id']
+    story = stories[story_id]
+    text = story.generate(request.args)
+    return render_template('story.html',
+                           titel=story.title,
+                           text=text)
