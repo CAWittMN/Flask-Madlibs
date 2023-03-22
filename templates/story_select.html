@@ -1,7 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Madlibs</h1>
 <form action="/words">
-  <select name="story_id" id="story-select"></select>
+  <select name="story_id" id="story-select">
+    {% for story in stories %}
+    <option value="{{ story.id }}">{{ story.title }}</option>
+    {% endfor %}
+  </select>
   <button type="submit">Start</button>
 </form>
 {% endblock %}

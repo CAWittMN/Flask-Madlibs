@@ -24,6 +24,7 @@ class Story:
         self.title = title
         self.prompts = words
         self.template = text
+        self.add_to_stories()
 
     def generate(self, answers):
         """Substitute answers into text."""
@@ -41,7 +42,6 @@ class Story:
 # Here's a story to get you started
 stories = []
 
-story_ids = {s.id: s for s in stories}
 
 story1 = Story("large", "The Large Thing",
     ["place", "noun", "verb", "adjective", "plural_noun"],
@@ -49,3 +49,17 @@ story1 = Story("large", "The Large Thing",
        large {adjective} {noun}. It loved to {verb} {plural_noun}."""
 )
 
+story2 = Story("delivery", "The Delivery",
+    ["noun", "verb", "adjective", "verb", "adjective", "adjective"], 
+    """I ordered some {noun}, and it arrived before I could {verb}. 
+       I was so {adjective} with the delivery, I {verb} a {adjective} review. 
+       The delivery guy was also super {adjective}."""
+)
+
+story3 = Story('nonsense', "All Words",
+    ['verb', 'adjective', 'noun', 'verb', 'plural_noun', 'adjective', 'noun'],
+    """Yesterday I {verb} a {adjective} {noun}. 
+       Then I {verb} lots of {plural_noun} like a {adjective} {noun}."""
+)
+
+story_ids = {s.id: s for s in stories}
