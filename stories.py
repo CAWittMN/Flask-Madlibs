@@ -1,5 +1,6 @@
 """Madlibs Stories."""
 
+stories_list = []
 
 class Story:
     """Madlibs story.
@@ -36,11 +37,10 @@ class Story:
 
         return text
     def add_to_stories(self):
-        stories.append(self)
+        stories_list.append(self)
 
 
 # Here's a story to get you started
-stories = []
 
 
 story1 = Story("large", "The Large Thing",
@@ -62,4 +62,4 @@ story3 = Story('nonsense', "All Words",
        Then I {verb} lots of {plural_noun} like a {adjective} {noun}."""
 )
 
-story_ids = {s.id: s for s in stories}
+stories = {s.id: s for s in stories_list}

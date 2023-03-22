@@ -1,1 +1,12 @@
-{% extends 'base.html' %} {% block content %} {% endblock %}
+{% extends 'base.html' %} {% block content %}
+<h1>Words for "{{ title }}"</h1>
+<form action="/story">
+  {% for prompt in prompts %}
+  <p>
+    {{ prompt }}:
+    <input name="{{ prompt }}" />
+  </p>
+  {% endfor %}
+  <button>Submit</button>
+</form>
+{% endblock %}
